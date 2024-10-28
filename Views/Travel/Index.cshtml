@@ -1,0 +1,79 @@
+@model IEnumerable<DailyTravelManagement.Models.Travel>
+
+@{
+    ViewData["PageTitle"] = "Travels";
+    ViewData["PageActionText"] = "+ New Travel";
+    ViewData["PageActionUrl"] = "/Travel/Create/";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <table class="table table-borderless table-sm table-hover widget">
+            <thead>
+                <tr>
+                    <th class="p-3 text-center">
+                       Vehicle
+                    </th>
+
+                    <th class="p-3 text-center">
+                        Amount
+                    </th>
+                    <th class="p-3 text-center">
+                       Expense Charges
+                    </th>
+
+                    <th class="p-3 text-center">
+                        Date 
+                    </th>
+
+                    <th class="p-3 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="p-3 text-center">
+                            @Html.DisplayFor(modelItem => item.VehicleTitleWithIcon)
+                        </td>
+
+                        <td class="p-3 text-center">
+                            @Html.DisplayFor(modelItem => item.FormattedAmount)
+                        </td>
+                        <td class="p-3 text-center">
+                            @Html.DisplayFor(modelItem => item.ExpenseCharges)
+                        </td>
+                        <td class="p-3 text-center">
+                            @Html.DisplayFor(modelItem => item.FormattedDate)
+
+                        </td>
+
+                        <td class="p-3 text-center d-flex justify-content-center">
+
+                            <a class="no-a-decoration mr-3 pt-1" asp-action="Edit" asp-route-id="@item.TravelId"><i class="bi bi-pencil"></i></a>
+                           
+                            <form action="/Travel/Delete/@item.TravelId" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm('Are you sure to delete this record?')">
+                                    <i class="bi bi-trash bi-lg text-danger"></i>
+
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @*Logo*@
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="bi bi-sign-turn-slight-right" style="font-size:50px;"></i>
+            <i class="bi bi-airplane-engines" style="font-size:50px;"></i>
+            <i class="bi bi-luggage" style="font-size:50px;"></i>
+        </div>
+    </div>
+
+</div>
+

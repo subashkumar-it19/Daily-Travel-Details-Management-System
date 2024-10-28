@@ -1,0 +1,88 @@
+@model IEnumerable<DailyTravelManagement.Models.Vehicle>
+
+@{
+    ViewData["PageTitle"] = "Vehicle Categories";
+    ViewData["PageActionText"] = "+ New Vehicle";
+    ViewData["PageActionUrl"] = "/Vehicle/Create/";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <table class="table table-borderless table-sm table-hover widget">
+            <thead>
+                <tr>
+                    <th class="p-3 text-center">
+                        Vehicle Model Name
+                    </th>
+
+                    <th class="p-3 text-center">
+                      Vehicle Name
+                    </th>
+
+                    <th class="p-3 text-center">
+                        Vehicle Type
+                    </th>
+
+                    <th class="p-3 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="p-3 text-center">
+                            @Html.DisplayFor(modelItem => item.VehicleModelName)
+                        </td>
+
+                        <td class="p-3 text-center">
+                            @Html.DisplayFor(modelItem => item.TitleWithIcon)
+                        </td>
+
+                        <td class="p-3 text-center">
+                            @if (item.VehicleType == "Two Wheeler")
+                            {
+                                <span class="badge bg-success">@Html.DisplayFor(modelItem => item.VehicleType)</span>
+                            }
+                            else if (item.VehicleType == "Three Wheeler")
+                            {
+                                <span class="badge bg-warning">@Html.DisplayFor(modelItem => item.VehicleType)</span>
+
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">@Html.DisplayFor(modelItem => item.VehicleType)</span>
+
+
+                            }
+
+                        </td>
+
+                        <td class="p-3 text-center d-flex justify-content-center">
+
+                            <a class="no-a-decoration mr-3 pt-1" asp-action="Edit" asp-route-id="@item.VehicleId"><i class="bi bi-pencil"></i></a>
+                           
+                            <form action="/Vehicle/Delete/@item.VehicleId" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-link no-a-decoration" onclick="return confirm('Are you sure to delete this record?')">
+                                    <i class="bi bi-trash bi-lg text-danger"></i>
+
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @*Logo*@
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="bi bi-car-front-fill" style="font-size:50px;"></i>
+            <i class="bi bi-scooter" style="font-size:50px;"></i>
+            <i class="bi bi-truck" style="font-size:50px;"></i>
+        </div>
+    </div>
+</div>
+
+
+

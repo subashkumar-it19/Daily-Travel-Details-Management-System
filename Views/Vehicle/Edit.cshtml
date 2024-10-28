@@ -1,0 +1,90 @@
+@model DailyTravelManagement.Models.Vehicle
+
+@{
+    ViewData["PageTitle"] = "Edit Vehicle Category";
+}
+
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form id="SpecialCharacter" asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="VehicleId" />
+
+                <div class="mb-3">
+                    <div class="btn-group form-check form-check-inline">
+                        <input type="radio" asp-for="VehicleType" class="btn-check" value="Two Wheeler" id="twoWheeler" autocomplete="off" checked>
+                        <label class="btn btn-outline-dark" for="twoWheeler">Two Wheeler</label>
+
+                        <input type="radio" asp-for="VehicleType" class="btn-check" value="Three Wheeler" id="threeWheeler" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="threeWheeler">Three Wheeler</label>
+
+                        <input type="radio" asp-for="VehicleType" class="btn-check" value="Four Wheeler" id="fourWheeler" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="fourWheeler">Four Wheeler</label>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="VehicleModelName" class="control-label"></label>
+                    <input asp-for="VehicleModelName" class="form-control" />
+                    <span asp-validation-for="VehicleModelName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="VehicleName" class="control-label">Vehicle Name</label>
+                    <select asp-for="VehicleName" class="form-select" aria-label="Select vehicle category">
+                        <option value="">Select vehicle</option>
+                        <option value="Scooter">Scooter</option>
+                        <option value="Bike">Bike</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Car">Car</option>
+                    </select>
+                    <span asp-validation-for="VehicleName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Icon" class="control-label">Icon</label>
+                    <select asp-for="Icon" class="form-select" aria-label="Select icon">
+                        <option value="">Select icon</option>
+                        <option value="🛵">🛵</option>
+                        <option value="🏍">🏍</option>
+                        <option value="🛺">🛺</option>
+                        <option value="🚗">🚗</option>
+                    </select>
+                    <span asp-validation-for="Icon" class="text-danger"></span>
+                </div>
+
+
+         
+
+
+
+
+               
+                <div class="form-group d-flex justify-content-center">
+                    <input type="submit" value=" Update " class="btn btn-secondary custom-btn" />
+                </div>
+            </form>
+    </div>
+
+    </div>
+    @*Logo*@
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="bi bi-car-front-fill" style="font-size:50px;"></i>
+            <i class="bi bi-scooter" style="font-size:50px;"></i>
+            <i class="bi bi-truck" style="font-size:50px;"></i>
+        </div>
+    </div>
+
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

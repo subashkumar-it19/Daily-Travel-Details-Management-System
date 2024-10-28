@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DailyTravelManagement.Models.Travel>;
+@{
+    ViewData["PageTitle"] = "Travel Report";
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="widget p-3">
+            <table id="myTable" class="Table table-borderless table-sm table-hover widget">
+                <thead>
+                    <tr>
+                        <th class="text-center p-1">
+                            Unique Id
+                        </th>
+                        <th class="text-center p-1">
+                            Date
+                        </th>
+                        <th class="text-center p-1">
+                           Vehicle
+                        </th>
+                        <th class="text-center p-1">
+                            Amount
+                        </th>
+                        <th class="text-center p-1">
+                            Expense Charges
+                        </th>
+                        <th class="text-center p-1">
+                           Create By
+                        </th>
+                        <th class="text-center p-1">
+                            Create Date
+                        </th>
+                        <th class="text-center p-3">
+                            Update By
+                        </th>
+                        <th class="text-center p-3">
+                           Update Date
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.Unique_Id)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.FormattedDate)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.Vehicle.VehicleModelName)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.Amount)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.ExpenseCharges)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.Create_By)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.Create_Date)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.Update_By)
+                            </td>
+                            <td class="p-3 text-center">
+                                @Html.DisplayFor(itemModel => item.Update_Date)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+<script>$(document).ready(function () {
+        $('#myTable').DataTable();
+    })</script>
+
+}

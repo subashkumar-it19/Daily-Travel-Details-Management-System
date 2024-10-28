@@ -1,0 +1,93 @@
+@model DailyTravelManagement.Models.Travel
+
+@{
+    ViewData["PageTitle"] = "Create a New Travel";
+
+}
+
+
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form id="SpecialCharacter" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              
+                <div class="form-group mb-3">
+                    <label asp-for="Date" class="control-label">Date</label>
+                    <input asp-for="Date" id="RemoveFutureDate" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="VehicleId" class="control-label">Vehicle</label>
+                    <select asp-for="VehicleId" class="form-control" asp-items="ViewBag.Vehicles"></select>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Kilometer" class="control-label">Kilometer</label>
+                    <input asp-for="Kilometer" class="form-control" />
+                    <span asp-validation-for="Kilometer" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Amount" class="control-label">Travel Amount Income</label>
+                    <input asp-for="Amount" class="form-control" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="FuelCharge" class="control-label">Fuel Charge</label>
+                    <input asp-for="FuelCharge" class="form-control" />
+                    <span asp-validation-for="FuelCharge" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="MaintenanceCharge" class="control-label">MaintenanceCharge</label>
+                    <input asp-for="MaintenanceCharge" class="form-control" />
+                    <span asp-validation-for="MaintenanceCharge" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="DriverCommission" class="control-label">Driver Commission</label>
+                    <input asp-for="DriverCommission" class="form-control" />
+                    <span asp-validation-for="DriverCommission" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Pickup" class="control-label">Pickup Location</label>
+                    <input asp-for="Pickup" class="form-control" />
+                    <span asp-validation-for="Pickup" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Drop" class="control-label">Drop Location</label>
+                    <input asp-for="Drop" class="form-control" />
+                    <span asp-validation-for="Drop" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Note" class="control-label">Note</label>
+                    <input asp-for="Note" class="form-control" />
+                    <span asp-validation-for="Note" class="text-danger"></span>
+                </div>
+              
+                <div class="form-group d-flex justify-content-center">
+                    <input type="submit" value=" Submit" class="btn btn-primary custom-btn" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @*Logo*@
+    <div class="col-md-5">
+        <div class="widget h-50 d-flex justify-content-center align-items-center">
+            <i class="bi bi-sign-turn-slight-right" style="font-size:50px;"></i>
+            <i class="bi bi-airplane-engines" style="font-size:50px;"></i>
+            <i class="bi bi-luggage" style="font-size:50px;"></i>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+
+</script>
+}

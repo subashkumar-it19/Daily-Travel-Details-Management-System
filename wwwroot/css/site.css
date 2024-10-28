@@ -1,0 +1,125 @@
+﻿html {
+    font-size: 14px;
+    font-family: "Inter";
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-family: "Inter";
+}
+
+*:not(.fa-solid):not(.fa):not(.icons){
+    font-family: "Inter";
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #2F3C7E;
+}
+
+
+/*Radio Button Group*/
+.btn-group{
+    width:100%;
+}
+
+.btn-dark {
+    width: 50%;
+}
+
+.custom-btn {
+    background-color: #2F3C7E;
+}
+/*Widget*/
+.widget {
+    border-radius: 1rem;
+    background-color: #FBEAEB;
+}
+
+/*Button*/
+btn:focus, btn:active {
+    outline:none !important;
+    box-shadow:none;
+}
+
+/*Hyperlink*/
+.no-a-decoration, .no-a.no-a-decoration:hover{
+    text-decoration:none;
+    color:inherit;
+}
+#openPopup:focus {
+    outline: none;
+}
+
+
+.widget.summary > div:first-child {
+    background-color: #222b33;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+    .widget.summary > div:first-child i {
+        font-weight: bold;
+    }
+
+.widget.income > div:first-child {
+    color: #65da41;
+}
+
+.widget.expense > div:first-child {
+    color: #ff4e48;
+}
+
+.widget.balance > div:first-child {
+    color: #2aa1ff;
+}
+
+.widget.chart {
+    padding: 5px;
+}
+
+.login-padding{
+    padding-top:120px;
+    padding-right:80px;
+    padding-left:80px;
+  
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

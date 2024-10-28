@@ -1,0 +1,66 @@
+﻿@model DailyTravelManagement.Models.Users
+
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - DailyTravelManagement</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .bg-images {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            width: 100%;
+            height: 100vh; /* full viewport height */
+            object-fit: cover; /* maintains aspect ratio */
+        }
+    </style>
+</head>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 p-0">
+            <img class="bg-images" src="@Url.Content("~/images/travel-img.jpg")" alt="img-alt">
+        </div>
+        <div class="col-md-6 login-padding">
+            <h3 class="p-0 text-center text-white">Daily Travel Management System</h3>
+            <div class="widget p-3">
+                <h4 class="p-0 text-center">Register</h4>
+                <form asp-action="Register" method="post">
+                    <div class="form-group mb-2">
+                        <label asp-for="EmailId">Email Id</label>
+                        <input type="email"  asp-for="EmailId" class="form-control" />
+                        <span asp-validation-for="EmailId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label asp-for="Username">Username</label>
+                        <input type="text" asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label asp-for="Password">Password</label>
+                        <input type="password" asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-flex justify-content-center pt-1">
+                        <input type="submit" value="Register" class="btn btn-primary custom-btn" />
+                    </div>
+                </form>
+                <div class="text-inline text-center">
+                    <a asp-action="Login">Already Registered</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
